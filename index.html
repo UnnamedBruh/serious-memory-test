@@ -12,9 +12,9 @@
         document.querySelector("p").textContent = "Get ready in 1..."
         setTimeout(function() {
           let img = 0
-          let s = 0
+          let se = 0
           let d = Date.now()
-          document.querySelector("p").textContent = img + " images loaded, " + s + " sounds loaded, lasting " + Math.ceil((Date.now() - d) / 1e3)
+          document.querySelector("p").textContent = img + " images loaded, " + se + " sounds loaded, lasting " + Math.floor((Date.now() - d) / 1e3)
           document.body.querySelector("button").remove()
           const sounds = ["phase1/sounds/An%20Unforgettable%20Death.mp3","phase1/sounds/Heartwarming%20Ending.mp3",
                          "phase1/sounds/loop.wav","phase1/sounds/loop%20(1).wav","phase1/sounds/scream.wav","phase1/sounds/scream2.wav","phase1/sounds/yaha%20(1).wav", "phase1/sounds/yaha%20(2).wav", "phase1/sounds/hollow%20(1).wav"]
@@ -25,7 +25,10 @@
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            s.oncanplay = ()=>s.play()
+            s.oncanplay = function(){
+              s.play()
+              se++
+            }
           })
           images.forEach(function(i) {
             const s = document.createElement("img")
@@ -33,7 +36,11 @@
             s.src = "test/" + i
             s.width = "20"
             s.height = "20"
+            s.onload = ()=>img++
           })
+          setInterval(function() {
+            document.querySelector("p").textContent = img + " images loaded, " + se + " sounds loaded, lasting " + Math.floor((Date.now() - d) / 1e3)
+          }, 80)
         }, 1000)
       }, 1000)
     }, 1000)
