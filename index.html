@@ -1,0 +1,26 @@
+<p>Hello! This will test the browser you have right now to the limits. Ensure your computer is very stable, and is not faulty.</p>
+<button>I understood the instructions, and followed them.</button>
+<script>
+  const e = document.querySelector("button")
+  e.onclick = function() {
+    e.disabled = true
+    e.onclick = function(){}
+    document.querySelector("p").textContent = "Get ready in 3..."
+    setTimeout(function() {
+      document.querySelector("p").textContent = "Get ready in 2..."
+      setTimeout(function() {
+        document.querySelector("p").textContent = "Get ready in 1..."
+        setTimeout(function() {
+          document.querySelectorAll("*").forEach(item => item.remove())
+          const sounds = ["/phase1/sounds/The%20Unforgettable%20Death.mp3","/phase1/sounds/Heartwarming%20Ending.mp3"]
+          sounds.forEach(function(i) {
+            const s = document.createElement("audio")
+            document.body.appendChild(s)
+            s.src = i
+            s.play()
+          })
+        }, 1000)
+      }, 1000)
+    }, 1000)
+  }
+</script>
