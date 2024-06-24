@@ -11,6 +11,10 @@
       setTimeout(function() {
         document.querySelector("p").textContent = "Get ready in 1..."
         setTimeout(function() {
+          let img = 0
+          let s = 0
+          let d = Date.now()
+          document.querySelector("p").textContent = img + " images loaded, " + s + " sounds loaded, lasting " + Math.ceil((Date.now() - d) / 1e3)
           document.body.querySelector("button").remove()
           const sounds = ["phase1/sounds/An%20Unforgettable%20Death.mp3","phase1/sounds/Heartwarming%20Ending.mp3",
                          "phase1/sounds/loop.wav","phase1/sounds/loop%20(1).wav","phase1/sounds/scream.wav","phase1/sounds/scream2.wav","phase1/sounds/yaha%20(1).wav", "phase1/sounds/yaha%20(2).wav", "phase1/sounds/hollow%20(1).wav"]
