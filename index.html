@@ -20,9 +20,7 @@
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            setTimeout(function() {
-              s.play()
-            }, 500)
+            s.oncanplay = ()=>s.play()
           })
           images.forEach(function(i) {
             const s = document.createElement("img")
