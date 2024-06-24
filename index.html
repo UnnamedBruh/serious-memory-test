@@ -17,6 +17,7 @@
             const s = document.createElement("audio")
             document.body.appendChild(s)
             s.src = "test/" + i
+            s.load()
             s.onload = ()=>s.play()
           })
         }, 1000)
