@@ -12,12 +12,12 @@
         document.querySelector("p").textContent = "Get ready in 1..."
         setTimeout(function() {
           document.body.querySelectorAll("*").forEach(item => item.remove())
-          const sounds = ["phase1/sounds/The%20Unforgettable%20Death.mp3","phase1/sounds/Heartwarming%20Ending.mp3"]
+          const sounds = ["phase1/sounds/An%20Unforgettable%20Death.mp3","phase1/sounds/Heartwarming%20Ending.mp3"]
           sounds.forEach(function(i) {
             const s = document.createElement("audio")
             document.body.appendChild(s)
             s.src = "test/" + i
-            s.play()
+            s.onload = ()=>s.play()
           })
         }, 1000)
       }, 1000)
