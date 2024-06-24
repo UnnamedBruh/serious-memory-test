@@ -13,6 +13,7 @@
         setTimeout(function() {
           document.body.querySelector("button").remove()
           const sounds = ["phase1/sounds/An%20Unforgettable%20Death.mp3","phase1/sounds/Heartwarming%20Ending.mp3"]
+          const images = ["phase1/laggy%20brain.svg","phase1/laggier%20brain.svg","phase1/detailed%20brain.svg","phase1/detailed%20brain%20but%20improved.svg","phase1/detailed%20brain%20but%20holed.svg"]
           sounds.forEach(function(i) {
             const s = document.createElement("audio")
             document.body.appendChild(s)
@@ -21,6 +22,11 @@
             setTimeout(function() {
               s.play()
             }, 500)
+          })
+          images.forEach(function(i) {
+            const s = document.createElement("img")
+            document.body.appendChild(s)
+            s.src = "test/" + i
           })
         }, 1000)
       }, 1000)
