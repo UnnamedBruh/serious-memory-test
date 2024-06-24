@@ -18,7 +18,9 @@
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            s.onload = ()=>s.play()
+            setTimeout(function() {
+              s.play()
+            }, 500)
           })
         }, 1000)
       }, 1000)
