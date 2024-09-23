@@ -20,15 +20,13 @@
                          "phase1/sounds/loop.wav","phase1/sounds/loop%20(1).wav","phase1/sounds/scream.wav","phase1/sounds/scream2.wav","phase1/sounds/yaha%20(1).wav", "phase1/sounds/yaha%20(2).wav", "phase1/sounds/hollow%20(1).wav"]
           const images = ["phase1/laggy%20brain.svg","phase1/laggier%20brain.svg","phase1/detailed%20brain.svg","phase1/detailed%20brain%20but%20improved.svg","phase1/detailed%20brain%20but%20holed.svg",
                           "phase1/hehe.svg","phase1/heheha.svg","phase1/madeinpenguinmod.svg","phase1/notlying.svg"]
+          const text = ["phase1/uselessstory.txt"]
           sounds.forEach(function(i) {
             const s = document.createElement("audio")
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            s.oncanplay = function(){
-              s.play()
-              se++
-            }
+            s.oncanplay = e.remove
           })
           images.forEach(function(i) {
             const s = document.createElement("img")
@@ -36,8 +34,11 @@
             s.src = "test/" + i
             s.width = "20"
             s.height = "20"
-            s.onload = ()=>img++
+            s.onload = ()=>img++ || img.remove()
           })
+        text.forEach(async function(i) {
+          await fetch(i).text()
+        })
           setInterval(function() {
             document.querySelector("p").textContent = img + " images loaded, " + se + " sounds loaded, lasting " + Math.floor((Date.now() - d) / 1e3)
           }, 80)
