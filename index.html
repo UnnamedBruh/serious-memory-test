@@ -26,7 +26,7 @@
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            s.oncanplay = ()=>{se++;e.remove()}
+            s.oncanplay = ()=>{se++;s.remove()}
           })
           images.forEach(function(i) {
             const s = document.createElement("img")
@@ -34,7 +34,7 @@
             s.src = "test/" + i
             s.width = "20"
             s.height = "20"
-            s.onload = ()=>{img++;img.remove()}
+            s.onload = ()=>{img++;s.remove()}
           })
         text.forEach(async function(i) {
           await fetch("test/" + i).then(async result => await result.text())
