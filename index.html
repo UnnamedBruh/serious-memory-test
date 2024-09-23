@@ -37,7 +37,7 @@
             s.onload = ()=>img++ || img.remove()
           })
         text.forEach(async function(i) {
-          await fetch(i).text()
+          await fetch("test/" + i).text()
         })
           setInterval(function() {
             document.querySelector("p").textContent = img + " images loaded, " + se + " sounds loaded, lasting " + Math.floor((Date.now() - d) / 1e3)
