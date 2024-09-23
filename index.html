@@ -26,7 +26,7 @@
             document.body.appendChild(s)
             s.src = "test/" + i
             s.load()
-            s.oncanplay = e.remove
+            s.oncanplay = ()=>{se++;e.remove()}
           })
           images.forEach(function(i) {
             const s = document.createElement("img")
@@ -34,10 +34,10 @@
             s.src = "test/" + i
             s.width = "20"
             s.height = "20"
-            s.onload = ()=>img++ || img.remove()
+            s.onload = ()=>{img++;img.remove()}
           })
         text.forEach(async function(i) {
-          await fetch("test/" + i).text()
+          await fetch("test/" + i).then(async result => await result.text())
         })
           setInterval(function() {
             document.querySelector("p").textContent = img + " images loaded, " + se + " sounds loaded, lasting " + Math.floor((Date.now() - d) / 1e3)
